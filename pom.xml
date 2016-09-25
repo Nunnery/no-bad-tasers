@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tealcubegames.minecraft.spigot</groupId>
+    <artifactId>no-bad-tasers-aggregator</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>No Bad Tasers</name>
+    <description>A library for dealing with NBT tags in Spigot.</description>
+
+    <modules>
+        <module>no-bad-tasers-common</module>
+        <module>no-bad-tasers-api</module>
+        <module>no-bad-tasers</module>
+        <module>no-bad-tasers-1_10_R1</module>
+        <module>no-bad-tasers-1_10_2_R1</module>
+    </modules>
+
+    <inceptionYear>2016</inceptionYear>
+
+    <organization>
+        <name>Teal Cube Games</name>
+    </organization>
+
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
+
+    <scm>
+        <connection>scm:git:https://github.com/Nunnery/no-bad-tasers.git</connection>
+        <developerConnection>scm:git:https://github.com/Nunnery/no-bad-tasers.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/Nunnery/No-Bad-Tasers</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>ToppleTheNun</id>
+            <name>Richard Harrah</name>
+            <roles>
+                <role>author</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <ciManagement>
+        <system>Teal Cube Games Jenkins</system>
+        <url>https://build.tealcubegames.com/job/no-bad-tasers</url>
+    </ciManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>2.11</version>
+                <configuration>
+                    <header>${project.basedir}/HEADER</header>
+                    <properties>
+                        <owner>Teal Cube Games</owner>
+                        <email>tealcubegames@gmail.com</email>
+                    </properties>
+                    <excludes>
+                        <exclude>**/README</exclude>
+                        <exclude>**/LICENSE</exclude>
+                        <exclude>**/HEADER</exclude>
+                        <exclude>src/test/resources/**</exclude>
+                        <exclude>src/main/resources/**</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>1.0-m5.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <allowSnapshots>true</allowSnapshots>
+                    <flowInitContext>
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>development</developBranchName>
+                        <featureBranchPrefix>feature-</featureBranchPrefix>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                        <versionTagPrefix>${project.artifactId}-</versionTagPrefix>
+                    </flowInitContext>
+                    <tagMessage>tagging release ${project.version}</tagMessage>
+                    <pushFeatures>true</pushFeatures>
+                    <pushHotfixes>true</pushHotfixes>
+                    <pushReleases>true</pushReleases>
+                    <pullMaster>true</pullMaster>
+                    <pullDevelop>true</pullDevelop>
+                    <noReleaseBuild>true</noReleaseBuild>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.1.15</version>
+                <executions>
+                    <execution>
+                        <id>git-commit-id</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <configuration>
+                            <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                            <skipPoms>false</skipPoms>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <name>Spigot Repository</name>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>tealcube-repo</id>
+            <url>http://maven.tealcube.com/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>tealcube-repo</id>
+            <url>http://maven.tealcube.com/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.name>${project.name}</project.build.name>
+    </properties>
+
+</project>
