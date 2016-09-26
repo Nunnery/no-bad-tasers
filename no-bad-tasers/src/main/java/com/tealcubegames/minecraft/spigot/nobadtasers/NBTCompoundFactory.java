@@ -32,7 +32,7 @@ public final class NBTCompoundFactory {
         // do nothing
     }
 
-    public AbstractNBTCompound getNBTCompound() {
+    public static AbstractNBTCompound getNBTCompound() {
         switch (SERVER_VERSION) {
             case "v1_10_R1":
                 return new com.tealcubegames.minecraft.spigot.nobadtasers.v1_10_R1.NBTCompoundImpl();
