@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    This file is part of No Bad Tasers, licensed under the MIT License.
+
+    Copyright (C) 2016 Teal Cube Games
+
+    Permission is hereby granted, free of charge,
+    to any person obtaining a copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+    and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or
+    substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+    OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -17,7 +40,6 @@
         <module>no-bad-tasers-api</module>
         <module>no-bad-tasers</module>
         <module>no-bad-tasers-1_10_R1</module>
-        <module>no-bad-tasers-1_10_2_R1</module>
     </modules>
 
     <inceptionYear>2016</inceptionYear>
@@ -139,6 +161,11 @@
             <id>spigot-repo</id>
             <name>Spigot Repository</name>
             <url>https://hub.spigotmc.org/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>tealcubegames-repo</id>
+            <name>TealCubeGames Repository</name>
+            <url>http://maven.tealcubegames.com/content/groups/public</url>
         </repository>
     </repositories>
 

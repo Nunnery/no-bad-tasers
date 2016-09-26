@@ -15,4 +15,8 @@
     <name>No Bad Tasers - Common</name>
     <description>Common classes and utilities for NBT library.</description>
 
+    <properties>
+        <license.skip>true</license.skip>
+    </properties>
+
 </project>
